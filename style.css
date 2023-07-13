@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 120px;
+}
+
+.grid-item{
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    border: 1px solid black;
+}
