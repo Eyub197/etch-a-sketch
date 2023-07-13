@@ -1,12 +1,13 @@
 *{
     box-sizing: border-box;
 }
+
 .container{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    max-width: 960px;
+    max-width: 400px;
 }
 
 .grid-item{
@@ -16,6 +17,3 @@
     border: 1px solid black;
 }
 
-.hover{
-    background-color: black;
-}
