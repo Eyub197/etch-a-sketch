@@ -4,10 +4,12 @@ const btnClearColor = document.querySelector(".clear-colors")
 const btnRandomColor = document.querySelector(".random-color")
 const btnWowoMode = document.querySelector(".wowo-Mode")
 const btnGumichka = document.querySelector(".gumichka")
+const colorPicker = document.querySelector("input")
+const btnColorPicker = document.querySelector(".color-picker")
 let gridItems =[]
 
 
-//aslo add a color selector
+
 
 function createDivs(size = 16) {
   removeAll();
@@ -105,6 +107,7 @@ btnWowoMode.addEventListener('click', ()=>{
 //!Extra credits
 
 
+//* gumichka
 
 btnGumichka.addEventListener('click', ()=> {
   gridItems.forEach((gridItem) => {
@@ -113,5 +116,16 @@ btnGumichka.addEventListener('click', ()=> {
     })
   })
   })
+
+  //*gumichka
+
+  btnColorPicker.addEventListener('click', () => {
+    gridItems.forEach((gridItem) => {
+      gridItem.addEventListener('mouseover', ()=> {
+        gridItem.style.backgroundColor = colorPicker.value
+      })
+    })
+  })
+
 
 createDivs(); //
