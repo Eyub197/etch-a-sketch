@@ -4,10 +4,10 @@ const btnClearColor = document.querySelector(".clear-colors")
 const btnRandomColor = document.querySelector(".random-color")
 const btnWowoMode = document.querySelector(".wowo-Mode")
 const btnClassicColor = document.querySelector(".classic-color")
+const btnGumichka = document.querySelector(".gumichka")
 let gridItems =[]
 
 
-// try to fix the border
 //aslo add a color selector
 
 function createDivs(size = 16) {
@@ -67,7 +67,8 @@ btnRandomColor.addEventListener('click', ()=> {
  })))
 })
 
-//Extara credits
+//!Extara credits
+
 let generateRandomRgbColor = () => {
   let r = Math.floor(Math.random() * 256)
   let g = Math.floor(Math.random() * 256)
@@ -102,7 +103,7 @@ btnWowoMode.addEventListener('click', ()=>{
   })
 })
 
-//Extra credits
+//!Extra credits
 
 btnClassicColor.addEventListener('click', ()=> {
 gridItems.forEach((gridItem) => {
@@ -112,5 +113,12 @@ gridItems.forEach((gridItem) => {
 })
 })
 
+btnGumichka.addEventListener('click', ()=> {
+  gridItems.forEach((gridItem) => {
+    gridItem.addEventListener('mouseover', ()=> {
+      gridItem.style.backgroundColor  ="#808080"
+    })
+  })
+  })
 
 createDivs(); //
