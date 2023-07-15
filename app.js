@@ -3,7 +3,6 @@ const btnChangeGrid = document.querySelector("#cn");
 const btnClearColor = document.querySelector(".clear-colors")
 const btnRandomColor = document.querySelector(".random-color")
 const btnWowoMode = document.querySelector(".wowo-Mode")
-const btnClassicColor = document.querySelector(".classic-color")
 const btnGumichka = document.querySelector(".gumichka")
 let gridItems =[]
 
@@ -24,7 +23,7 @@ function createDivs(size = 16) {
       containerDiv.appendChild(gridItem);
       gridItems.push(gridItem)
       gridItem.addEventListener("mouseover", () => {
-        gridItem.style.backgroundColor = "blue";
+        gridItem.style.backgroundColor = "#2E2E2E";
       });
     }
   }
@@ -105,13 +104,7 @@ btnWowoMode.addEventListener('click', ()=>{
 
 //!Extra credits
 
-btnClassicColor.addEventListener('click', ()=> {
-gridItems.forEach((gridItem) => {
-  gridItem.addEventListener('mouseover', ()=> {
-    gridItem.style.backgroundColor  =" #2E2E2E"
-  })
-})
-})
+
 
 btnGumichka.addEventListener('click', ()=> {
   gridItems.forEach((gridItem) => {
