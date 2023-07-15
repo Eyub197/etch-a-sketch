@@ -24,7 +24,7 @@ function createDivs(size = 16) {
       containerDiv.appendChild(gridItem);
       gridItems.push(gridItem)
       gridItem.addEventListener("mouseover", () => {
-        gridItem.style.backgroundColor = "red";
+        gridItem.style.backgroundColor = "blue";
       });
     }
   }
@@ -49,5 +49,21 @@ btnChangeGrid.addEventListener('click', () => {
 
 btnClearColor.addEventListener('click', ()=> { 
   gridItems.forEach((item) => item.style.backgroundColor = "#808080" ) } )
+
+btnRandomColor
+
+let generateRandomColor = () => {
+  let randomColor = Math.floor(Math.random() * 16777216)
+  let color = "#" + randomColor.toString(16).padStart(6, '0')
+  return color
+}
+
+btnRandomColor.addEventListener('click', ()=> {
+  const randomColor = generateRandomColor()
+  gridItems.forEach((item => item.addEventListener('mouseover', ()=>{
+  item.style.backgroundColor = randomColor
+ })))
+ 
+})
 
 createDivs(); //
