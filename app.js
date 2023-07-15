@@ -1,6 +1,6 @@
 const containerDiv = document.querySelector(".container");
-const btnChangeGrid = document.querySelector("#cn");
-const btnClearColor = document.querySelector(".clear-colors")
+const btnChangeGrid = document.querySelector(".change-grid");
+const btnReset = document.querySelector(".reset")
 const btnRandomColor = document.querySelector(".random-color")
 const btnWowoMode = document.querySelector(".wowo-Mode")
 const btnGumichka = document.querySelector(".gumichka")
@@ -31,8 +31,8 @@ function createDivs(size = 16) {
 }
 
 function removeAll() {
-  gridItems.forEach((item )=> {
-    item.remove()
+  gridItems.forEach((gridItem )=> {
+    gridItem.remove()
   });
   gridItems = []
 }
@@ -46,8 +46,8 @@ btnChangeGrid.addEventListener('click', () => {
   }
 });
 
-btnClearColor.addEventListener('click', ()=> { 
-  gridItems.forEach((item) => item.style.backgroundColor = "#808080" ) } )
+btnReset.addEventListener('click', ()=> { 
+  gridItems.forEach((gridItem) => gridItem.style.backgroundColor = "#808080" ) } )
 
 
 let generateRandomColor = () => {
@@ -76,7 +76,7 @@ let generateRandomRgbColor = () => {
 }
 
 let darkenColor = (gridItem) => {
-  let color = item.style.backgroundColor;
+  let color = gridItem.style.backgroundColor;
   if (!gridItem) return;
 
   const rgbValues = color.match(/\d+/g);
@@ -88,13 +88,13 @@ let darkenColor = (gridItem) => {
   g = Math.max(0, Math.round(g - g * 0.1));
   b = Math.max(0, Math.round(b - b * 0.1));
 
-  square.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+  gridItem.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
 
 btnWowoMode.addEventListener('click', ()=>{
   gridItems.forEach((gridItem) => {
-    item.addEventListener('mouseover', ()=>{
-      item.style.backgroundColor = generateRandomColor()
+    gridItem.addEventListener('mouseover', ()=>{
+      gridItem.style.backgroundColor = generateRandomColor()
       darkenColor(gridItem)
     })
     
@@ -142,5 +142,6 @@ btnSmallSize.addEventListener('click', ()=> {
 })
 
 //*sizes
-
-createDivs(); 
+document.addEventListener('DOMContentLoaded', () => {
+  createDivs();
+})
