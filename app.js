@@ -2,10 +2,10 @@ const containerDiv = document.querySelector(".container");
 const btnChangeGrid = document.querySelector("#cn");
 const btnClearColor = document.querySelector(".clear-colors")
 const btnRandomColor = document.querySelector(".random-color")
+const btnWowoMode = document.querySelector(".wowo-Mode")
 let gridItems =[]
 
-//add random color selector
-//make the change size button more interactive
+
 //do the think with the darkness
 //add e clasic color the black one and try to fix the border
 //aslo add a color selector
@@ -38,7 +38,9 @@ function removeAll() {
 }
 
 btnChangeGrid.addEventListener('click', () => {
-  alert("im clicked")
+  let inputField = document.createElement("input")
+  inputField.type = "text"
+  
   let size = parseInt(prompt("Enter a grid size you like (max 64)"));
   if (!isNaN(size) && size > 0 && size <= 64) {
     createDivs(size);
@@ -63,7 +65,41 @@ btnRandomColor.addEventListener('click', ()=> {
   gridItems.forEach((item => item.addEventListener('mouseover', ()=>{
   item.style.backgroundColor = randomColor
  })))
- 
+})
+
+//Extara credits
+let generateRandomRgbColor = () => {
+  let r = Math.floor(Math.random() * 256)
+  let g = Math.floor(Math.random() * 256)
+  let b = Math.floor(Math.random() * 256)
+  let color = `rgb(${r}, ${g}, ${b})`
+  return color
+}
+
+let darkenColor = (item) => {
+  let color = item.style.backgroundColor;
+  if (!item) return;
+
+  const rgbValues = color.match(/\d+/g);
+  let r = parseInt(rgbValues[0]);
+  let g = parseInt(rgbValues[1]);
+  let b = parseInt(rgbValues[2]);
+
+  r = Math.max(0, Math.round(r - r * 0.1));
+  g = Math.max(0, Math.round(g - g * 0.1));
+  b = Math.max(0, Math.round(b - b * 0.1));
+
+  square.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+}
+
+btnWowoMode.addEventListener('click', ()=>{
+  gridItems.forEach((item) => {
+    item.addEventListener('mouseover', ()=>{
+      item.style.backgroundColor = generateRandomColor()
+      darkenColor(item)
+    })
+    
+  })
 })
 
 createDivs(); //
