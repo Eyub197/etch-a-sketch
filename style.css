@@ -18,7 +18,9 @@ h1{
     display: flex;
     flex-wrap: wrap; 
     max-width: 400px;
-    border: 15px ;
+    border: 25px solid #FC2E20;
+    box-sizing: content-box;
+    border-radius: 10pt;
 }
 
 .grid-item{
