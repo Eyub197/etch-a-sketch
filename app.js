@@ -3,11 +3,11 @@ const btnChangeGrid = document.querySelector("#cn");
 const btnClearColor = document.querySelector(".clear-colors")
 const btnRandomColor = document.querySelector(".random-color")
 const btnWowoMode = document.querySelector(".wowo-Mode")
+const btnClassicColor = document.querySelector(".classic-color")
 let gridItems =[]
 
 
-//do the think with the darkness
-//add e clasic color the black one and try to fix the border
+// try to fix the border
 //aslo add a color selector
 
 function createDivs(size = 16) {
@@ -101,5 +101,16 @@ btnWowoMode.addEventListener('click', ()=>{
     
   })
 })
+
+//Extra credits
+
+btnClassicColor.addEventListener('click', ()=> {
+gridItems.forEach((gridItem) => {
+  gridItem.addEventListener('mouseover', ()=> {
+    gridItem.style.backgroundColor  =" #2E2E2E"
+  })
+})
+})
+
 
 createDivs(); //
